@@ -15,9 +15,9 @@ use App\Http\Controllers\TransactionController;
 |
 */
 
-Route::get('/',[HomeController::class,'index'])->name('login');
+Route::get('/',[HomeController::class,'index'])->name('home');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/home', [UserController::class,'index'])->name('dashboard');
+    Route::get('/dashboard', [UserController::class,'index'])->name('dashboard');
     Route::resource('transaction',TransactionController::class);
 });
